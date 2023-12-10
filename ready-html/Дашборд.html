@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+ <head> 
+  <meta charset="utf-8"> 
+  <link rel="stylesheet" href="style4.css"> 
+  <title>Дашборд</title> 
+  <script src="https://www.google.com/jsapi"></script> 
+  <script> 
+   google.load("visualization", "1", {packages:["corechart"]}); 
+   google.setOnLoadCallback(drawChart); 
+   function drawChart() { 
+    var data = google.visualization.arrayToDataTable([ 
+     ['Возраст', 'ЛОР', 'Массаж', 'Бассейн', 'Логопед'], 
+     ['15', 1.3, 70, 80, 100], 
+     ['18', 2000, 3120, 3500, 4000], 
+     ['20', 12170, 9920, 12000, 13000] 
+    ]); 
+    var options = { 
+     title: 'По направлениям', 
+     hAxis: {title: 'Возраст'}, 
+     vAxis: {title: 'Всего участников'} 
+    }; 
+    var chart = new google.visualization.ColumnChart(document.getElementById('oil')); 
+    chart.draw(data, options); 
+    var data2 = google.visualization.arrayToDataTable([  
+     ['Возраст', 'ЛОР', 'Массаж', 'Бассейн', 'Логопед'],  
+     ['15', 2, 50, 80, 100],  
+     ['18', 1500, 4000, 4500, 5000],  
+     ['20', 10500, 8800, 8500, 16000]  
+    ]);  
+    var options2 = {  
+     title: 'По часам',  
+     hAxis: {title: 'Возраст'},  
+     vAxis: {title: 'Всего участников'}  
+    };  
+    var chart2 = new google.visualization.ColumnChart(document.getElementById('gas')); 
+    chart2.draw(data2, options2); 
+    var data3 = google.visualization.arrayToDataTable([   
+     ['Возраст', 'Тугоухость', 'ДЦП', 'Аутист'],   
+     ['15', 30, 40, 60],   
+     ['18', 2500, 3800, 3500],   
+     ['20', 11000, 9200, 9500]   
+    ]);   
+    var options3 = {   
+     title: 'Категория диагноза',   
+     hAxis: {title: 'Возраст'},   
+     vAxis: {title: 'Всего участников'}   
+    };   
+    var chart3 = new google.visualization.ColumnChart(document.getElementById('coal'));  
+    chart3.draw(data3, options3); 
+   } 
+  </script> 
+ </head> 
+ <body> 
+  <div id="oil" style="width: 500px; height: 400px;"></div> 
+  <div id="gas" style="width: 500px; height: 400px;"></div> 
+  <div id="coal" style="width: 500px; height: 400px;"></div> 
+ </body> 
+ </html>
